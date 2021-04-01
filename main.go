@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import "github.com/criistian14/prueba-jikkosoft/src/config"
 
 func main() {
-	fmt.Println("Base Project")
+	server := config.NewServer()
+
+	server.InitVars()
+	server.LoadConfigurations()
+	server.InitModules()
+	server.RunServer()
 }
