@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"github.com/criistian14/prueba-jikkosoft/src/config"
+	_ "gorm.io/driver/mysql"
+	_ "gorm.io/driver/postgres"
+)
 
 func main() {
-	fmt.Println("Base Project")
+	server := config.NewServer()
+
+	server.InitVars()
+	server.LoadConfigurations()
+	server.InitModules()
+	server.RunServer()
 }
