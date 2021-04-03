@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/criistian14/prueba-jikkosoft/src/database"
 	"github.com/criistian14/prueba-jikkosoft/src/database/seeders"
+	"github.com/criistian14/prueba-jikkosoft/src/modules/inquiries"
 	"github.com/criistian14/prueba-jikkosoft/src/modules/invoices"
 	"github.com/criistian14/prueba-jikkosoft/src/modules/numbers"
 	"github.com/criistian14/prueba-jikkosoft/src/modules/public_services"
@@ -64,6 +65,7 @@ func (s *server) InitModules() {
 	numbers.InitModule(s)
 	public_services.InitModule(s)
 	invoices.InitModule(s)
+	inquiries.InitModule(s)
 }
 
 // * Run server
