@@ -27,6 +27,13 @@ curl -X POST -H "Content-Type: application/json" \
 
 # Tablas
 
+## Countries (Paises)
+
+Name   | Type     | extra
+------ | -------- | ------
+ID | bigint | pk
+Name | varchar(250) |
+
 ## Inquiries (Solicitudes - PQR's)
 
 Name   | Type     | extra
@@ -36,6 +43,7 @@ Title | varchar(250) |
 Message | text |
 State | enum('new', 'in_progress', 'closed') |
 Category | enum('petition', 'complaint', 'claim') |
+UserID | bigint | fk
 
 ## Invoices (Facturas)
 
@@ -45,6 +53,7 @@ ID | bigint | pk
 PaymentDeadline | datetime |
 TotalAmount | bigint |
 Paid | tinyint |
+UserID | bigint | fk
 PublicServiceID | bigint | fk
 
 ## Public Services (Servicios Públicos)
