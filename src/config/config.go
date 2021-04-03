@@ -2,7 +2,11 @@ package config
 
 import (
 	"fmt"
+	"github.com/criistian14/prueba-jikkosoft/src/database"
+	"github.com/criistian14/prueba-jikkosoft/src/database/seeders"
+	"github.com/criistian14/prueba-jikkosoft/src/modules/invoices"
 	"github.com/criistian14/prueba-jikkosoft/src/modules/numbers"
+	"github.com/criistian14/prueba-jikkosoft/src/modules/public_services"
 	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
 	"os"
@@ -45,6 +49,12 @@ func (s *server) InitVars() {
 
 // * Load configuration packages
 func (s *server) LoadConfigurations() {
+	// Migrate tables
+	database.Migrate(false)
+
+	// Seed data base with test data
+	seeders.Seeder(false)
+
 	// Init new instance fiber
 	s.App = fiber.New()
 }
@@ -52,6 +62,8 @@ func (s *server) LoadConfigurations() {
 // * Init modules
 func (s *server) InitModules() {
 	numbers.InitModule(s)
+	public_services.InitModule(s)
+	invoices.InitModule(s)
 }
 
 // * Run server
