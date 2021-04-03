@@ -2,6 +2,7 @@ package database
 
 import (
 	"fmt"
+	invoiceDomain "github.com/criistian14/prueba-jikkosoft/src/modules/invoices/domain"
 	publicServiceDomain "github.com/criistian14/prueba-jikkosoft/src/modules/public_services/domain"
 )
 
@@ -21,6 +22,7 @@ func Migrate(forceMigrate bool) {
 		// Drop tables
 		err := db.Debug().Migrator().DropTable(
 			&publicServiceDomain.PublicService{},
+			&invoiceDomain.Invoice{},
 		)
 		if err != nil {
 			fmt.Printf("Error Migrations: %v \n", err)
@@ -29,6 +31,7 @@ func Migrate(forceMigrate bool) {
 		// Create tables
 		err = db.Debug().Migrator().AutoMigrate(
 			&publicServiceDomain.PublicService{},
+			&invoiceDomain.Invoice{},
 		)
 		if err != nil {
 			fmt.Printf("Error Migrations: %v \n", err)
