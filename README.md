@@ -25,6 +25,37 @@ curl -X POST -H "Content-Type: application/json" \
 
     {"sorted":[4,5,10,14,123,4,5],"unsorted":[123,4,14,5,10,5,4]}
 
+# Tablas
+
+## Inquiries (Solicitudes - PQR's)
+
+Name   | Type     | extra
+------ | -------- | ------
+ID | bigint | pk
+Title | varchar(250) |
+Message | text |
+State | enum('new', 'in_progress', 'closed') |
+Category | enum('petition', 'complaint', 'claim') |
+
+## Invoices (Facturas)
+
+Name   | Type     | extra
+------ | -------- | ------
+ID | bigint | pk
+PaymentDeadline | datetime |
+TotalAmount | bigint |
+Paid | tinyint |
+PublicServiceID | bigint | fk
+
+## Public Services (Servicios Públicos)
+
+Name   | Type     | extra
+------ | -------- | ------
+ID | bigint | pk
+Company | varchar(250) |
+Type | enum('water', 'electric') |
+Email | varchar(250) |
+
 # Librerias usadas
 
 - [Fiber](https://docs.gofiber.io/)
