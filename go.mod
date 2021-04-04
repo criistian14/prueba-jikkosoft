@@ -1,5 +1,6 @@
 module github.com/criistian14/prueba-jikkosoft
 
+// +heroku goVersion go1.11
 go 1.15
 
 require (
