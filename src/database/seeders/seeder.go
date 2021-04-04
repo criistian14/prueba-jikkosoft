@@ -19,5 +19,25 @@ func Seeder(forceSeeder bool) {
 		if err != nil {
 			fmt.Printf("Error Seeding: %v \n", err)
 		}
+
+		err = InvoiceSeeder()
+		if err != nil {
+			fmt.Printf("Error Seeding: %v \n", err)
+		}
+
+		err = InquirySeeder()
+		if err != nil {
+			fmt.Printf("Error Seeding: %v \n", err)
+		}
+
+		err = CountrySeeder()
+		if err != nil {
+			fmt.Printf("Error Seeding: %v \n", err)
+		}
+
+		err = CitySeeder()
+		if err != nil {
+			fmt.Printf("Error Seeding: %v \n", err)
+		}
 	}
 }

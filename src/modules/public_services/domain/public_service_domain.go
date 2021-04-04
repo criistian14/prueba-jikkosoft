@@ -5,6 +5,7 @@ import (
 	"gorm.io/gorm"
 	"time"
 
+	invoiceDomain "github.com/criistian14/prueba-jikkosoft/src/modules/invoices/domain"
 	validation "github.com/go-ozzo/ozzo-validation"
 )
 
@@ -21,6 +22,8 @@ type PublicService struct {
 	Company *string            `gorm:"type:varchar(250); not null" json:"company"`
 	Type    *TypePublicService `gorm:"type:enum('water', 'electric'); not null" json:"type"`
 	Email   *string            `gorm:"type:varchar(250); not null; unique" json:"email"`
+
+	Invoices []invoiceDomain.Invoice `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 
 	CreatedAt time.Time
 	UpdatedAt time.Time
