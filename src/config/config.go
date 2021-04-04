@@ -45,7 +45,7 @@ func (s *server) InitVars() {
 	}
 
 	// Get Values of app
-	s.Port = os.Getenv("APP_PORT")
+	s.Port = os.Getenv("PORT")
 	if s.Port == "" {
 		s.Port = defaultPort
 	}
