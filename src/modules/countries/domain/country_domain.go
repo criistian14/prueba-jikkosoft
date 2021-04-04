@@ -1,6 +1,7 @@
 package domain
 
 import (
+	cityDomain "github.com/criistian14/prueba-jikkosoft/src/modules/cities/domain"
 	"gorm.io/gorm"
 	"time"
 
@@ -12,9 +13,11 @@ type Country struct {
 	ID   uint    `gorm:"primary_key" json:"id"`
 	Name *string `gorm:"type:varchar(250); not null" json:"name"`
 
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt gorm.DeletedAt
+	Cities []cityDomain.City `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
+
+	CreatedAt time.Time      `json:"created_at,omitempty"`
+	UpdatedAt time.Time      `json:"updated_at,omitempty"`
+	DeletedAt gorm.DeletedAt `json:"deleted_at,omitempty"`
 }
 
 // * Set name to data base

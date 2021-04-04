@@ -4,11 +4,13 @@ import (
 	"fmt"
 	"github.com/criistian14/prueba-jikkosoft/src/database"
 	"github.com/criistian14/prueba-jikkosoft/src/database/seeders"
+	"github.com/criistian14/prueba-jikkosoft/src/modules/cities"
 	"github.com/criistian14/prueba-jikkosoft/src/modules/countries"
 	"github.com/criistian14/prueba-jikkosoft/src/modules/inquiries"
 	"github.com/criistian14/prueba-jikkosoft/src/modules/invoices"
 	"github.com/criistian14/prueba-jikkosoft/src/modules/numbers"
 	"github.com/criistian14/prueba-jikkosoft/src/modules/public_services"
+	"github.com/criistian14/prueba-jikkosoft/src/modules/users"
 	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
 	"os"
@@ -68,6 +70,8 @@ func (s *server) InitModules() {
 	invoices.InitModule(s)
 	inquiries.InitModule(s)
 	countries.InitModule(s)
+	cities.InitModule(s)
+	users.InitModule(s)
 }
 
 // * Run server

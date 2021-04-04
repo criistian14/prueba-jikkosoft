@@ -30,10 +30,11 @@ type Inquiry struct {
 	Message  *string          `gorm:"type:varchar(250); not null" json:"message"`
 	State    *StateInquiry    `gorm:"type:enum('new', 'in_progress', 'closed'); not null" json:"state"`
 	Category *CategoryInquiry `gorm:"type:enum('petition', 'complaint', 'claim'); not null" json:"category"`
+	UserID   *uint            `gorm:"not null" json:"user_id"`
 
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt gorm.DeletedAt
+	CreatedAt time.Time      `json:"created_at,omitempty"`
+	UpdatedAt time.Time      `json:"updated_at,omitempty"`
+	DeletedAt gorm.DeletedAt `json:"deleted_at,omitempty"`
 }
 
 // * Set name to data base

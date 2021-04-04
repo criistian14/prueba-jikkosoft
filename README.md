@@ -27,6 +27,26 @@ curl -X POST -H "Content-Type: application/json" \
 
 # Tablas
 
+## Users (Usuarios)
+
+Name   | Type     | extra
+------ | -------- | ------
+ID | bigint | pk
+FirstName | varchar(250) |
+LastName | varchar(250) |
+Email | varchar(300) |
+Address | varchar(250) |
+Phone | varchar(11) |
+CityID | bigint | fk
+
+## Cities (Ciudades)
+
+Name   | Type     | extra
+------ | -------- | ------
+ID | bigint | pk
+Name | varchar(250) |
+CountryID | bigint | fk
+
 ## Countries (Paises)
 
 Name   | Type     | extra
