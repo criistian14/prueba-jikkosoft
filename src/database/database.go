@@ -8,6 +8,7 @@ import (
 	"gorm.io/gorm"
 	"os"
 	"strconv"
+	"strings"
 )
 
 // * Database struct
@@ -36,7 +37,9 @@ func (db *Database) GetStatusMigrate() bool {
 func (db *Database) getVars() error {
 	err := godotenv.Load()
 	if err != nil {
-		return err
+		if !strings.Contains(err.Error(), "load .env") {
+			return err
+		}
 	}
 
 	db.connection = os.Getenv("DB_CONNECTION")
