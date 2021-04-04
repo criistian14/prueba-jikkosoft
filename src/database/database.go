@@ -37,7 +37,7 @@ func (db *Database) GetStatusMigrate() bool {
 func (db *Database) getVars() error {
 	err := godotenv.Load()
 	if err != nil {
-		if !strings.Contains(err.Error(), "load .env") {
+		if !strings.Contains(err.Error(), ".env") {
 			return err
 		}
 	}
