@@ -7,6 +7,7 @@ import (
 	inquiryDomain "github.com/criistian14/prueba-jikkosoft/src/modules/inquiries/domain"
 	invoiceDomain "github.com/criistian14/prueba-jikkosoft/src/modules/invoices/domain"
 	publicServiceDomain "github.com/criistian14/prueba-jikkosoft/src/modules/public_services/domain"
+	userDomain "github.com/criistian14/prueba-jikkosoft/src/modules/users/domain"
 )
 
 // * Migrate tables
@@ -24,11 +25,12 @@ func Migrate(forceMigrate bool) {
 
 		// Drop tables
 		err := db.Debug().Migrator().DropTable(
+			&countryDomain.Country{},
+			&cityDomain.City{},
+			&userDomain.User{},
 			&publicServiceDomain.PublicService{},
 			&invoiceDomain.Invoice{},
 			&inquiryDomain.Inquiry{},
-			&countryDomain.Country{},
-			&cityDomain.City{},
 		)
 		if err != nil {
 			fmt.Printf("Error Migrations: %v \n", err)
@@ -36,11 +38,12 @@ func Migrate(forceMigrate bool) {
 
 		// Create tables
 		err = db.Debug().Migrator().AutoMigrate(
+			&countryDomain.Country{},
+			&cityDomain.City{},
+			&userDomain.User{},
 			&publicServiceDomain.PublicService{},
 			&invoiceDomain.Invoice{},
 			&inquiryDomain.Inquiry{},
-			&countryDomain.Country{},
-			&cityDomain.City{},
 		)
 		if err != nil {
 			fmt.Printf("Error Migrations: %v \n", err)

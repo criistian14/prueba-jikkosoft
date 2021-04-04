@@ -15,7 +15,22 @@ func Seeder(forceSeeder bool) {
 	}
 
 	if isSeeder {
-		err := PublicServiceSeeder()
+		err := CountrySeeder()
+		if err != nil {
+			fmt.Printf("Error Seeding: %v \n", err)
+		}
+
+		err = CitySeeder()
+		if err != nil {
+			fmt.Printf("Error Seeding: %v \n", err)
+		}
+
+		err = UserSeeder()
+		if err != nil {
+			fmt.Printf("Error Seeding: %v \n", err)
+		}
+
+		err = PublicServiceSeeder()
 		if err != nil {
 			fmt.Printf("Error Seeding: %v \n", err)
 		}
@@ -30,14 +45,5 @@ func Seeder(forceSeeder bool) {
 			fmt.Printf("Error Seeding: %v \n", err)
 		}
 
-		err = CountrySeeder()
-		if err != nil {
-			fmt.Printf("Error Seeding: %v \n", err)
-		}
-
-		err = CitySeeder()
-		if err != nil {
-			fmt.Printf("Error Seeding: %v \n", err)
-		}
 	}
 }

@@ -23,11 +23,11 @@ type PublicService struct {
 	Type    *TypePublicService `gorm:"type:enum('water', 'electric'); not null" json:"type"`
 	Email   *string            `gorm:"type:varchar(250); not null; unique" json:"email"`
 
-	Invoices []invoiceDomain.Invoice `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
+	Invoices []invoiceDomain.Invoice `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;" json:"invoices,omitempty"`
 
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt gorm.DeletedAt
+	CreatedAt time.Time      `json:"created_at,omitempty"`
+	UpdatedAt time.Time      `json:"updated_at,omitempty"`
+	DeletedAt gorm.DeletedAt `json:"deleted_at,omitempty"`
 }
 
 // * Set name to data base

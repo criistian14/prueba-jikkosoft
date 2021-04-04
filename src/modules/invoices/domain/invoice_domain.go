@@ -14,10 +14,11 @@ type Invoice struct {
 	TotalAmount     *int       `gorm:"not null" json:"total_amount"`
 	Paid            *bool      `gorm:"default:false; not null" json:"paid"`
 	PublicServiceID *uint      `gorm:"not null" json:"public_service_id"`
+	UserID          *uint      `gorm:"not null" json:"user_id"`
 
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt gorm.DeletedAt
+	CreatedAt time.Time      `json:"created_at,omitempty"`
+	UpdatedAt time.Time      `json:"updated_at,omitempty"`
+	DeletedAt gorm.DeletedAt `json:"deleted_at,omitempty"`
 }
 
 // * Set name to data base
