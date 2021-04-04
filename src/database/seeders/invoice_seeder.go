@@ -16,12 +16,14 @@ func InvoiceSeeder() error {
 	totalAmount := 200000
 	paid := false
 	var publicServiceID uint = 1
+	var userID uint = 1
 
 	_, err := invoiceUsecase.SaveInvoice(invoiceDomain.Invoice{
 		PaymentDeadline: &paymentDeadline,
 		TotalAmount:     &totalAmount,
 		Paid:            &paid,
 		PublicServiceID: &publicServiceID,
+		UserID:          &userID,
 		CreatedAt:       time.Now(),
 	})
 	if err != nil {
@@ -33,13 +35,34 @@ func InvoiceSeeder() error {
 	totalAmount = 167000
 	paid = true
 	publicServiceID = 2
+	userID = 1
 
 	_, err = invoiceUsecase.SaveInvoice(invoiceDomain.Invoice{
 		PaymentDeadline: &paymentDeadline,
 		TotalAmount:     &totalAmount,
 		Paid:            &paid,
 		PublicServiceID: &publicServiceID,
+		UserID:          &userID,
 		CreatedAt:       time.Now().AddDate(0, 0, -24),
+	})
+	if err != nil {
+		return err
+	}
+
+	// Invoice 3
+	paymentDeadline = time.Now().AddDate(0, 0, -10)
+	totalAmount = 17000
+	paid = true
+	publicServiceID = 1
+	userID = 1
+
+	_, err = invoiceUsecase.SaveInvoice(invoiceDomain.Invoice{
+		PaymentDeadline: &paymentDeadline,
+		TotalAmount:     &totalAmount,
+		Paid:            &paid,
+		PublicServiceID: &publicServiceID,
+		UserID:          &userID,
+		CreatedAt:       time.Now().AddDate(0, 0, -34),
 	})
 	if err != nil {
 		return err

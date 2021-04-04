@@ -13,4 +13,6 @@ var (
 	ErrCountryDuplicateID       = errors.New("there is an country with the same registered id")
 	ErrCityNotFound             = errors.New("the city was not found")
 	ErrCityDuplicateID          = errors.New("there is an city with the same registered id")
+	ErrUserNotFound             = errors.New("the user was not found")
+	ErrUserDuplicateID          = errors.New("there is an user with the same registered id")
 )

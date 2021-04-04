@@ -16,12 +16,14 @@ func InquirySeeder() error {
 	message := "Message test"
 	state := inquiryDomain.InProgressInquiry
 	category := inquiryDomain.ClaimInquiry
+	var userID uint = 1
 
 	_, err := inquiryUsecase.SaveInquiry(inquiryDomain.Inquiry{
 		Title:     &title,
 		Message:   &message,
 		State:     &state,
 		Category:  &category,
+		UserID:    &userID,
 		CreatedAt: time.Now(),
 	})
 	if err != nil {
@@ -33,12 +35,14 @@ func InquirySeeder() error {
 	message = "Message"
 	state = inquiryDomain.ClosedInquiry
 	category = inquiryDomain.PetitionInquiry
+	userID = 1
 
 	_, err = inquiryUsecase.SaveInquiry(inquiryDomain.Inquiry{
 		Title:     &title,
 		Message:   &message,
 		State:     &state,
 		Category:  &category,
+		UserID:    &userID,
 		CreatedAt: time.Now().AddDate(0, 0, -24),
 	})
 	if err != nil {
